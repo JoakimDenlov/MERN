@@ -4,11 +4,11 @@ import  './Timeline.css'
 const InfoBox = ({ data }) => (
     <div className="timeline-item">
         <div className="timeline-item-content">
-            <span className="tag" style={{ background: data.category.color }}>
-                {data.category.tag}
+            <span className="tag" style={{ background: data.color }}>
+                {data.tag}
             </span>
             <time>{data.date}</time>
-            <p>{data.text}</p>
+            <p>{data.body}</p>
             {data.link && (
                 <a
                     href={data.link.url}

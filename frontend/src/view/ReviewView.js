@@ -1,12 +1,13 @@
 import React from 'react';
-import Review from '../Components/Review/Review'
+import ReviewPage from '../Components/Review/ReviewPage'
 import Styles from './Views.module.css'
+
 
 const ReviewView = () => {
 
     return (
         <div className={Styles.View}>
-        <Review />
+        <ReviewPage />
         </div>
         
 

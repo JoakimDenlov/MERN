@@ -7,10 +7,11 @@
   background-image: url("../../utils/images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 .timeline-container::after {
-  background-color: #e17b77;
+  background-color: rgba(53, 181, 255, 0.514);
   content: "";
   position: absolute;
   left: calc(50% - 2px);
@@ -115,7 +116,7 @@
 
 .timeline-item-content .circle {
   background-color: #fff;
-  border: 3px solid #e17b77;
+  border: 3px solid rgba(53, 181, 255, 0.514);
   border-radius: 50%;
   position: absolute;
   top: calc(50% - 10px);
