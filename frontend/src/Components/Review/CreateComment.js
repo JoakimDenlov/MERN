@@ -29,27 +29,31 @@ const CreateComment = () => {
         .catch(error => {console.log(error)})
     }
 
-    const updateComment = (id) => {
+    const updateComment = (id, index) => {
         const comment = {
             name: name,
             commentBody: commentBody,
             password: password
         }
-        //if(password === data. ) {
+        if(password === data[index].password) {
         axios.put(`http://localhost:3001/comments/${id}`, comment)
         .then((response) => {console.log(response.data.message)})
         .catch((error) => {console.log(error)})
-    //}
-    //else {
-        //alert("Password does not match")
-    //}
-}
-    const deleteComment = (id) => {
+        }
+        else {
+            alert("Password does not match")
+        }
+    }
+    const deleteComment = (id, index) => {
+        if (password === data[index].password) {
         axios.delete(`http://localhost:3001/comments/${id}`)
         .then((response) => {console.log(response.data.message) })
         .catch((error) => {console.log(error)})
     }
-    
+    else {
+        alert("Password do not match")
+    }
+}
 
 
     useEffect(() => {
@@ -64,8 +68,8 @@ const CreateComment = () => {
         {data.map((data, idx) => (
             <div>
             <CommentBox data={data} key={idx} />
-            <button onClick={() => updateComment(data._id)}> Edit </button>
-            <button onClick={() => deleteComment(data._id)}> Delete </button>
+            <button onClick={() => updateComment(data._id, idx)}> Edit </button>
+            <button onClick={() => deleteComment(data._id, idx)}> Delete </button>
 
             </div>
         ))}
@@ -81,7 +85,7 @@ const CreateComment = () => {
         placeholder="Name.." 
         type="text"
         />
-        <input className={Styles.CreateCommentInputField} 
+        <textarea className={Styles.CreateCommentInputField} 
         required={true} 
         value={commentBody} 
         onChange={(e) => setCommentBody(e.target.value)} 
@@ -96,6 +100,7 @@ const CreateComment = () => {
         type="submit" 
         placeholder="Upload" 
         />
+        <h4 className={Styles.CreateCommentTitle}>To edit or delete a comment, use the form. Password must match with corresponding comment</h4>
         </form>
         </div>
         </div>

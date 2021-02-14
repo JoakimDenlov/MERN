@@ -16,9 +16,6 @@ app.use(helmet());
 app.use(cors());
 app.use(morgan('common'));
 
-app.get('/recipe', (req, res) => {
-	res.send('Pancakes!');
-});
 
 CommentRoutes.routes(app);
 TimelineRoutes.routes(app);
